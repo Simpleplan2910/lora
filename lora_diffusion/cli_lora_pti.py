@@ -292,7 +292,7 @@ def loss_step(
             masked_image_latents = batch["masked_image_latents"]
             mask = batch["mask_values"]
 
-    noise = torch.randn_like(latents)
+    noise = torch.randn_like(latents)+ 0.1 * torch.randn(latents.shape[0], latents.shape[1], 1, 1)
     bsz = latents.shape[0]
 
     timesteps = torch.randint(
